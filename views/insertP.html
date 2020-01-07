@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>문제추가</title>
+</head>
+<body>
+    <form action="/tligd/insertP" method="post">
+        <div>
+            <label>문제이름:</label>
+            <input type="text" name="title" required>
+        </div>
+        <br>
+        <div>
+            <label>문제내용:</label>
+            <textarea name="content" required></textarea>
+        </div>
+        <br>
+        <div>
+            <label>답:</label>
+            <input type="text" name="answer" required>
+        </div> 
+        <br>
+        <div>
+            <label>점수:</label>
+            <input type="text" name="score" required>
+        </div>
+        <br>
+        <div>
+            <label>문제 종류</label>
+            <select name="pType" required>
+                <option disabled selected>종류를 선택하세요</option>
+                <option value="web">프런트</option>
+                <option value="server">서버</option>
+                <option value="network">네트워크</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label>구글드라이브 링크:</label>
+            <input type="text" name="file"/>
+        </div> 
+        <br>       
+        <div>
+            <input type="submit" value="문제 추가"/>
+        </div>
+    </form>
+</body>
+</html>

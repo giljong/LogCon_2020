@@ -1,0 +1,109 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Logcon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/problem.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<div id="page-wrapper">
+					<section id="header" class="wrapper">
+
+                        <!-- Logo -->
+                            <div id="logo">
+                                <h1><a href="#"> Challenges </a></h1>
+                                <p>2019 Logcon</p>
+                                <% if (user_school != "undefined") { %>
+                                    <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
+                                        <span>Score : <%= score %></span>
+                                    </p>    
+                                <% } %>
+                                
+                            </div>
+    
+                        <!-- Nav -->
+                            <nav id="nav">
+                                <ul>
+                                    <li class="current"><a href="/">Dash Board</a></li>
+                                    <li>
+                                        <a href="/rank">Ranking</a>
+                                        <ul>
+                                            <li><a href="/rank?school=middle">중학생 순위</a></li>
+                                            <li><a href="/rank?school=high">고등학생 순위</a></li>
+                                            <li><a href="/rank">전체순위</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/notice">Notice</a></li>
+                                    <li><a href="/challenges">문제</a></li>
+                                    <% if (user_school == "undefined") { %>
+                                        <li class="userAuth">
+                                            <a href="#" class="unLogin" onClick="popUpAuthForm(true)">
+                                                로그인/회원가입
+                                            </a>
+                                        </li>
+                                    <% } else { %>
+                                        <li><a href="/mypage">내 정보</a></li>
+                                        <li><a href="/logout" class="logined">로그아웃</li>
+                                    <% } %>
+                                    
+                                    
+                                </ul>
+                            </nav>
+                            
+                    </section>
+				</div>
+                <div id="main">
+                    <div class="inner">
+                        
+                        <section class="tiles">
+                            <% for (var i = 0; i < info.length; i++) { %>
+                                        <% if (info[i].PTYPE == "network") { %>
+                                            <% var T = "network" %>
+                                        <% } if (info[i].PTYPE == "server") { %>
+                                            <% var T = "server" %>
+                                        <% } if (info[i].PTYPE == "web") { %>
+                                            <% var T = "web" %>
+                                        <% } %>
+
+
+                                <article class=<%= T %>>
+                                    <span class="image">
+                                        <img src="images/probList/<%= T %>.png" alt="" /> <!-- 서버는 server.png-->
+                                    </span>
+                                    <a href="/challenges/<%= info[i].ID %>">		<!-- 경로는 후에 변경 -->
+                                        <h2>Title Of Chall</h2>
+                                        <h3><%=info[i].SCORE%></h3>
+                                        <div class="content">
+                                            <p style="color:gold"> 
+                                                Detail <br />
+                                                score : <%= info[i].SCORE%>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+                            <% } %>
+                        </section>
+                    </div>
+                </div>
+        </div>
+
+        <% include ./layout/modal %>
+    <!-- Scripts -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.dropotron.min.js"></script>
+        <script src="js/browser.min.js"></script>
+        <script src="js/breakpoints.min.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/problem.js"></script>
+        <script src="js/main_modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Logcon_순위</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
+		<link rel="stylesheet" href="css/main.css" />
+		
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header" class="wrapper">
+
+                <!-- Logo -->
+                    <div id="logo">
+                        <h1><a href="#">Mypage</a></h1>
+                        <p>2019 Logcon</p>
+                        <% if (user_school != "undefined") { %>
+                            <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
+                                <span>Score : <%= score %></span>
+                            </p>    
+                        <% } %>
+                        
+                    </div>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul>
+                            <li class="current"><a href="/">Dash Board</a></li>
+                            <li>
+                                <a href="/rank">Ranking</a>
+                                <ul>
+                                    <li><a href="/rank?school=middle">중학생 순위</a></li>
+                                    <li><a href="/rank?school=high">고등학생 순위</a></li>
+                                    <li><a href="/rank">전체순위</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/notice">Notice</a></li>
+                            <li><a href="/challenges">문제</a></li>
+                            <% if (user_school == "undefined") { %>
+                                <li class="userAuth">
+                                    <a href="#" class="unLogin" onClick="popUpAuthForm(true)">
+                                        로그인/회원가입
+                                    </a>
+                                </li>
+                            <% } else { %>
+                                <li><a href="/mypage">내 정보</a></li>
+                                <li><a href="/logout" class="logined">로그아웃</li>
+                            <% } %>
+                            
+                            
+                        </ul>
+                    </nav>
+                    
+            </section>
+				<section id="highlights" class="wrapper style3">
+					<div class="title">Notice</div>
+					<div class="container">
+
+
+
+							<div class="rank-List col-12-medium">
+								<section class="highlight">
+									<!-- <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
+									<div>
+										<h3>  </h3>		<!--비우기-->
+										<h3> 아이디 : <%= user_id %><br> </h3>
+									</div>
+									
+
+									<div>
+										<form action="/mypage" method="POST">
+											<p class="notices">
+												학교 : <%= user_school %>			<br/>
+												점수 : <%= score %> pts		<br/>
+												한 줄 메모 : <%= comment %>		<br />
+											</p>
+											<span>메모 변경</span>
+											<label for=""> 한줄메모 </label>
+											<input name="ment" type="text" placeholder="한줄메모 변경" style="width:80%"/>
+										</form>
+										
+									</div>
+									
+								</section>
+							</div>
+							
+
+
+
+
+
+
+
+
+
+
+
+						</div>
+					</div>
+				</section>
+
+				<% include ./layout/modal %>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script> 
+			<script src="assets/js/main_modal.js"></script>
+	</body>
+</html>
+
+

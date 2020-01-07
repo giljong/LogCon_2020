@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Logcon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="/images/logo/logcon-logo-24.png">
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/problem.css" />
+        <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+        <style>
+            a.logined{
+                pointer-events: none;
+                cursor: default;
+            }
+            
+        </style>
+	</head>
+	<body class="is-preload">
+		<section id="header" class="wrapper">
+            
+            <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="#"> <%= info[0].TITLE %> </a></h1>
+                    <p>2019 Logcon<br/><%= info[0].SCORE %></p>
+                </div>
+
+            <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li class="current"><a href="/">Dash Board</a></li>
+                        <li>
+                            <a href="/rank">Ranking</a>
+                            <ul>
+                                <li><a href="/rank?school=middle">중학생 순위</a></li>
+                                <li><a href="/rank?school=high">고등학생 순위</a></li>
+                                <li><a href="/rank">전체순위</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/notice">Notice</a></li>
+                        <li><a href="/challenges">문제</a></li>
+                        <% if (user_school == "undefined") { %>
+                            <li class="userAuth">
+                                <a href="#" class="unLogin" onClick="popUpAuthForm(true)">
+                                    로그인/회원가입
+                                </a>
+                            </li>
+                        <% } else { %>
+                            <li><a href="/mypage">내 정보</a></li>
+                            <li><a href="/logout" class="logined">로그아웃</a></li>
+                        <% } %>
+                        
+                        
+                    </ul>
+                </nav>
+                
+        </section>
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+                <div id="main">
+                    <div class="inner">
+                        
+                        <p>			<!-- 문제 내용이 들어가는 곳 -->
+                            <%= info[0].CONTENTS %>
+                        </p>
+                        <% if (info[0].FILE_PATH != "false") { %>
+                            <a href="<%= info[0].FILE_PATH %>" target="_blank">파일 다운로드</a>	<!-- 파일이 함께하는 문제 -->
+                            <br>
+                        <% } %>
+                        
+                        <form action="/challenges/<%= pid %>" method="POST" class="submitFlag">	<!-- pid  -->
+                            <div>
+                                <div class="inputField">
+                                        
+                                    <input name="answer" id="flag" type="text" class="validate" style="padding: 0;
+                                    border-radius: 0;">
+                                    <label for="flag" class="flag">flag</label>
+                                </div>
+                                <button type="submit" name="action">제출</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+			</div>
+            
+            <% include ./layout/modal %>
+
+		<!-- Scripts -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery.dropotron.min.js"></script>
+		<script src="/js/browser.min.js"></script>
+		<script src="/js/breakpoints.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+		<script src="/js/problem.js"></script>
+        <script src="/js/main_modal.js"></script>
+        
+	</body>
+</html>

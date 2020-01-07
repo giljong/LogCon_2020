@@ -1,0 +1,98 @@
+<div class="modalContent">
+    <form action="/login" method="POST" class="" >
+        
+        <div>
+            <div class="detail">
+                <h2>Login[input id & password]</h2>
+
+                
+                <input type="text" placeholder="username" name="id"/>
+                
+                <input type="password" placeholder="password Here" name="pw" />
+                
+                <div>
+                    <input type="submit" value="로그인"/>
+                </div>
+            </div>
+            <div class="changeDetail" onclick="changeDetail(true)">
+                <span> 회원가입 </span>
+            </div>
+            
+
+        </div>
+
+    </form>
+
+    <form action="/register" style="display:none;" method="post">
+        <div>
+            <div class="detail">
+                <h2>Register</h2>
+                
+                <div>
+                    <span>username</span>
+                    <input type="text" placeholder="username" name="id"/>
+                </div>
+                
+
+                <div>
+                    <div>
+                        <span>password</span>
+                    
+                        <input type="password" placeholder="password Here" name ="pw"/>
+                    </div>
+                    
+                    <div>
+                        <span>confirm password</span>
+                        
+                        <input type="password" placeholder="confirm password!" name="check"/>
+                    </div>
+                </div>
+                
+                
+                <div class="email">
+                    <div>	
+                        <span>Email</span>
+                        <input type="text" placeholder="Email" name="email"/>
+                    </div>
+
+
+                    <div>
+                        <span>Select domain</span>
+                        <select name="domain">
+
+                            <option value="@gmail.com" selected="">@gmail.com</option>
+                            <option value="@naver.com">@naver.com</option>
+                            <option value="@daum.net">@daum.net</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" name="school" placeholder="school ex) 선린인터넷고등학교">
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <span>중학생</span>
+                            <input type="radio" name="grade" value="중학생">	
+                        </div> <br />
+                        <div>
+                            <span>고등학생</span>
+                            <input type="radio" name="grade" value="고등학생">
+                        </div>
+                    </div>
+                    
+                    <input type="submit" value="회원가입"/>
+                    
+                </div>
+
+            </div>
+            <div class="changeDetail" onclick="changeDetail(false)">
+                <span>로그인</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal-overlay" onclick="popUpAuthForm(false)"></div>
