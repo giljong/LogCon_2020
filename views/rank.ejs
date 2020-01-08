@@ -1,40 +1,30 @@
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Logcon_순위</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
-		<link rel="stylesheet" href="css/main.css" />
-		
-		
-	</head>
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
+   <head>
+      <title>Logcon_순위</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
+      <link rel="stylesheet" href="css/main.css" />
 
-			<!-- Header -->
-			<section id="header" class="wrapper">
+
+   </head>
+   <body class="no-sidebar is-preload">
+      <div id="page-wrapper">
+
+         <!-- Header -->
+         <section id="header" class="wrapper">
 
                 <!-- Logo -->
                     <div id="logo">
                         <h1><a href="#">Ranking</a></h1>
                         <p>2019 Logcon</p>
                         <% if (user_school != "undefined") { %>
-                            <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
+                            <p>환영합니다 <%= user_id %>님<br>      <!-- Login상태참고해서 출력-->
                                 <span>Score : <%= score %></span>
-                            </p>    
+                            </p>
                         <% } %>
-                        
+
                     </div>
 
                 <!-- Nav -->
@@ -59,24 +49,24 @@
                                 </li>
                             <% } else { %>
                                 <li><a href="/mypage">내 정보</a></li>
-                                <li><a href="/logout" class="logined">로그아웃</li>
+                                <li><a href="/logout" class="logined">로그아웃 </a></li>
                             <% } %>
-                            
-                            
+
+
                         </ul>
                     </nav>
-                    
+
             </section>
-				<section id="highlights" class="wrapper style3">
-					<div class="title">Ranking</div>
-					<div class="container">
+            <section id="highlights" class="wrapper style3">
+               <div class="title">Ranking</div>
+               <div class="container">
 
 
-							<% users.sort((a, b) => {return b.SCORE - a.SCORE}) %>
+                     <% users.sort((a, b) => {return b.SCORE - a.SCORE}) %>
                             <% let count = 1; %>
-                            
+
                             <% for (let i = 0; i < users.length; i++) { %>
-                                
+
 
 
                                 <div class="rank-List col-12-medium">
@@ -86,16 +76,16 @@
                                             <h3><%= count++ %></h3>
                                             <h3><%= users[i].ID %></h3>
                                         </div>
-                                        
-    
+
+
                                         <div>
                                             <span class="points"><span> Score :  </span> <span><%= users[i].SCORE %> </span><%= users[i].SCORE %> Pts</span> </span>
-                                            
+
                                             <span class="comments"> <span> Comments : </span>  <span> <%= users[i].PROFILE_COMMENT %>  </span>  </span>
-    
+
                                             <span class="school"> <span> School : </span>  <span> <%= users[i].SCHOOL %> </span>  </span>
                                         </div>
-                                        
+
                                     </section>
                                 </div>
                             <% } %>
@@ -107,24 +97,24 @@
 
 
 
-						</div>
-					</div>
-				</section>
+                  </div>
+               </div>
+            </section>
 
-				<% include ./layout/modal %>
+            <% include ./layout/modal %>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> 
-			<script src="assets/js/main_modal.js"></script>
-			<script>
-				for(var i=2;i<=$(".container .rank-List").length;i+=2){
-					$(".container .rank-List:nth-child("+i+")").css({'background':'rgba(1,1,1,0.1)'})
-				}
-			</script>
-	</body>
+      <!-- Scripts -->
+         <script src="js/jquery.min.js"></script>
+         <script src="js/jquery.dropotron.min.js"></script>
+         <script src="js/browser.min.js"></script>
+         <script src="js/breakpoints.min.js"></script>
+         <script src="js/util.js"></script>
+         <script src="js/main.js"></script>
+         <script src="js/main_modal.js"></script>
+         <script>
+             for(var i=2;i<=$(".container .rank-List").length;i+=2){
+                $(".container .rank-List:nth-child("+i+")").css({'background':'rgba(1,1,1,0.1)'})
+            }
+         </script>
+   </body>
 </html>
