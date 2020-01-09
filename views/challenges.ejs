@@ -1,28 +1,28 @@
 
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Logcon</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
-		<link rel="stylesheet" href="css/main.css" />
-		<link rel="stylesheet" href="css/problem.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-		
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<div id="page-wrapper">
-					<section id="header" class="wrapper">
+   <head>
+      <title>Logcon</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
+      <link rel="stylesheet" href="css/main.css" />
+      <link rel="stylesheet" href="css/problem.css" />
+      <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+      
+   </head>
+   <body class="is-preload">
+      <!-- Wrapper -->
+         <div id="wrapper">
+            <div id="page-wrapper">
+               <section id="header" class="wrapper">
 
                         <!-- Logo -->
                             <div id="logo">
                                 <h1><a href="#"> Challenges </a></h1>
                                 <p>2019 Logcon</p>
                                 <% if (user_school != "undefined") { %>
-                                    <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
+                                    <p>환영합니다 <%= user_id %>님<br>      <!-- Login상태참고해서 출력-->
                                         <span>Score : <%= score %></span>
                                     </p>    
                                 <% } %>
@@ -59,34 +59,45 @@
                             </nav>
                             
                     </section>
-				</div>
+            </div>
                 <div id="main">
                     <div class="inner">
-                        
+                        <%
+                            var solvedArray = []
+                            for(var i=0;i<solve.length;i++){
+                                solvedArray.push(solve[i].PID);
+                            }
+
+                            
+                        %>
                         <section class="tiles">
-                            <% for (var i = 0; i < info.length; i++) { %>
-                                        <% if (info[i].PTYPE == "network") { %>
-                                            <% var T = "network" %>
-                                        <% } if (info[i].PTYPE == "server") { %>
-                                            <% var T = "server" %>
-                                        <% } if (info[i].PTYPE == "web") { %>
-                                            <% var T = "web" %>
-                                        <% } %>
+                            <% for (var i = 0; i < info.length; i++) {
+                                if (info[i].PTYPE == "network") { 
+                                        var T = "network"
+                                } if (info[i].PTYPE == "server") { 
+                                        var T = "server"
+                                } if (info[i].PTYPE == "web") {
+                                        var T = "web" 
+                                } 
+                                
+                                var isSolved = solvedArray.find(element => element == info[i].ID);
+                                if(isSolved != undefined){    
+                            %>
+                            
+                                <article class="<%= T+" solved" %>" ><%
+                            }else {
+                                %><article class=<%= T %>><%
+                            }
+                            %>
 
 
-                                <article class=<%= T %>>
+                               
                                     <span class="image">
                                         <img src="images/probList/<%= T %>.png" alt="" /> <!-- 서버는 server.png-->
                                     </span>
-                                    <a href="/challenges/<%= info[i].ID %>">		<!-- 경로는 후에 변경 -->
-                                        <h2>Title Of Chall</h2>
+                                    <a href="/challenges/<%= info[i].ID %>">      <!-- 경로는 후에 변경 -->
+                                        <h2><%=info[i].TITLE%></h2>
                                         <h3><%=info[i].SCORE%></h3>
-                                        <div class="content">
-                                            <p style="color:gold"> 
-                                                Detail <br />
-                                                score : <%= info[i].SCORE%>
-                                            </p>
-                                        </div>
                                     </a>
                                 </article>
                             <% } %>

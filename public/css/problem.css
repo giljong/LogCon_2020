@@ -975,14 +975,18 @@ input {
 					}
 
 			.tiles article.server > .image:before {
-				background: #f2849e;
+				background-color: #585858;
 			}
 
 			.tiles article.network > .image:before {
-				background-color: #7ecaf6;
+				background-color: #585858;
 			}
 
 			.tiles article.web > .image:before {
+				background-color: #585858;
+			}
+
+			.tiles article.solved >.image:before {
 				background-color: #7bd0c1;
 			}
 
