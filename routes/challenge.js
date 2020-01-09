@@ -26,7 +26,6 @@ router.get('/:num',(req,res) => {
 });
 router.post('/:num',(req,res) => {
     const ans = req.body.answer;
-    console.log(ans);
     const time = moment().format('MMMM Do YYYY, h:mm:ss a');
     const ip = req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
@@ -43,7 +42,6 @@ router.post('/:num',(req,res) => {
                 db.query('select * from Solved where PID = ? and USER = ?',[req.session.num,user],(error,results) => {
                     if(error) console.log(error);
                     if(results.length === 0){
-                        console.log(result[0].score,req.session.score)
                         db.query('update Users set SCORE=? where ID = ?',[result[0].SCORE + req.session.score,user]);
                         db.query('insert into Solved (PID,USER) values (?,?)',[req.session.num,user]);
                         req.session.score += result[0].SCORE;
