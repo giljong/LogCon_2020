@@ -997,7 +997,9 @@ input {
 			max-height: 15em;
 			opacity: 1;
 		}
-
+		.tiles article {
+			width: calc(20% - 1px);
+		}
 		@media screen and (max-width: 1280px) {
 
 			.tiles {
@@ -1005,8 +1007,7 @@ input {
 			}
 
 				.tiles article {
-					width: calc(33.33333% - 1.25em);
-					margin: 1.25em 0 0 1.25em;
+					width: calc(20% - 1px);
 				}
 
 		}
@@ -1018,9 +1019,13 @@ input {
 			}
 
 				.tiles article {
-					width: calc(50% - 2.5em);
-					margin: 2.5em 0 0 2.5em;
+					width: calc(20% - 1px);
 				}
+					.tiles article > a h2,
+					.tiles article > a h3 {
+						font-size:x-large;
+						margin-top: 10px;
+					}
 
 		}
 
@@ -1031,8 +1036,7 @@ input {
 			}
 
 				.tiles article {
-					width: calc(50% - 1.25em);
-					margin: 1.25em 0 0 1.25em;
+					width: calc(20% - 1px);
 				}
 
 					.tiles article:hover > .image {
@@ -1041,7 +1045,11 @@ input {
 						-ms-transform: scale(1.0);
 						transform: scale(1.0);
 					}
-
+				.tiles article > a h2,
+				.tiles article > a h3 {
+					font-size:small;
+					margin-top: 10px;
+				}
 		}
 
 		@media screen and (max-width: 480px) {
@@ -1051,8 +1059,7 @@ input {
 			}
 
 				.tiles article {
-					width: 100%;
-					margin: 1.25em 0 0 0;
+					width: calc(20% - 1px);
 				}
 
 		}
