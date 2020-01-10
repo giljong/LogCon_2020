@@ -154,7 +154,7 @@ router.post('/deleteP',(req,res) => {
                 res.send("<script type='text/javascript'>alert('존재하지 않는 문제입니다.');window.location.href='/tligd/deleteP';</script>");
             }
             else{
-                db.query('update users set score=score-? where id in(select user from Solved where pid=?)',[data[0].score-score,data[0].id]);
+                db.query('update Users set score=score-? where id in(select user from Solved where pid=?)',[data[0].score-score,data[0].id]);
                 db.query('update problems set score = ?, contents = ? where title = ?',[score,content,title])
                 req.session.score -= data[0].score-score;
                 req.session.save(() => {
