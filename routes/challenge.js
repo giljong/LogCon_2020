@@ -4,7 +4,12 @@ const moment = require('moment');
 const router = express.Router();
 
 router.get('/:num',(req,res) => {
-    if(!(req.session === undefined)){
+    var t1 = moment('2020-01-12 09:00');
+    var t2 = moment();
+    if(moment.duration(t2.diff(t1)).asMinutes() < 0 && req.session.user !== 'admin'){
+        res.send('<script type="text/javascript">alert("문제는 9시부터 확인 가능해요୧( ⁼̴̶̤̀ω⁼̴̶̤́ )૭");window.location.href="/";</script>')
+    }
+    else if(!(req.session === undefined)){
         if(!(req.session.flag))
             res.redirect('/auth');
         else{
@@ -65,7 +70,12 @@ router.post('/:num',(req,res) => {
 });
 
 router.get('/',(req,res) => {
-    if(!(req.session.user === undefined)){
+    var t1 = moment('2020-01-12 09:00');
+    var t2 = moment();
+    if(moment.duration(t2.diff(t1)).asMinutes() < 0 && req.session.user !== 'admin'){
+        res.send('<script type="text/javascript">alert("문제는 9시부터 확인 가능해요୧( ⁼̴̶̤̀ω⁼̴̶̤́ )૭");window.location.href="/";</script>')
+    }
+    else if(!(req.session.user === undefined)){
         db.query('select TITLE,SCORE,PTYPE,ID from Problems',(err,result) => {
             if(err) console.log(err);
             db.query('select PID from Solved where USER = ?',req.session.user,(error,data) => {

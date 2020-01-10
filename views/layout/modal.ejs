@@ -3,19 +3,28 @@
         
         <div>
             <div class="detail">
-                <h2>Login[input id & password]</h2>
+                <h2>Login</h2>
 
+                <div>
+                    <span> id </span>
+                    <input type="text" placeholder="username" name="id"/>
+                </div>
+                <div>
+                    <span>pw</span>
+                    <input type="password" placeholder="password Here" name="pw" />
+                </div>
                 
-                <input type="text" placeholder="username" name="id"/>
-                
-                <input type="password" placeholder="password Here" name="pw" />
                 
                 <div>
                     <input type="submit" value="로그인"/>
                 </div>
             </div>
-            <div class="changeDetail" onclick="changeDetail(true)">
-                <span> 회원가입 </span>
+            <div>
+                <p style="margin-top: 4em;
+                text-align: center; "> 계정이 없으신가요? </p>
+            </div>
+            <div class="changeDetail">
+                <span  onclick="changeDetail(true)" style="cursor:pointer"> 회원가입 </span>
             </div>
             
 
@@ -69,7 +78,7 @@
                 <div>
                     <input type="text" name="school" placeholder="school ex) 선린인터넷고등학교">
                 </div>
-                <div>
+                <div style="display: flex;">
                     <div>
                         <div>
                             <span>중학생</span>
@@ -81,13 +90,13 @@
                         </div>
                     </div>
                     
-                    <input type="submit" value="회원가입"/>
+                    <input type="submit" style="margin: 0 auto;width: fit-content;"value="회원가입"/>
                     
                 </div>
 
             </div>
             <div class="changeDetail" onclick="changeDetail(false)">
-                <span>로그인</span>
+                <span>로그인하러가기</span>
             </div>
         </div>
     </form>

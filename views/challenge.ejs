@@ -8,13 +8,6 @@
 		<link rel="stylesheet" href="/css/main.css" />
 		<link rel="stylesheet" href="/css/problem.css" />
         <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-        <style>
-            a.logined{
-                pointer-events: none;
-                cursor: default;
-            }
-            
-        </style>
 	</head>
 	<body class="is-preload">
 		<section id="header" class="wrapper">
@@ -22,7 +15,7 @@
             <!-- Logo -->
                 <div id="logo">
                     <h1><a href="#"> <%= info[0].TITLE %> </a></h1>
-                    <p>2019 Logcon<br/><%= info[0].SCORE %></p>
+                    <p>2020 Logcon<br/><%= info[0].SCORE %></p>
                 </div>
 
             <!-- Nav -->
@@ -73,8 +66,8 @@
                             <div>
                                 <div class="inputField">
                                         
-                                    <input name="answer" id="flag" type="text" class="validate" style="padding: 0;
-                                    border-radius: 0;">
+                                    <input name="answer" id="flag" type="text" class="validate" style="padding:0;
+                                    border-radius: 0;" placeholder="TeamLog{...}">
                                     <label for="flag" class="flag">flag</label>
                                 </div>
                                 <button type="submit" name="action">제출</button>
@@ -84,8 +77,8 @@
                 </div>
 			</div>
             
+            
             <% include ./layout/modal %>
-
 		<!-- Scripts -->
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/jquery.dropotron.min.js"></script>

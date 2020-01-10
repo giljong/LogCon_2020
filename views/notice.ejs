@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Logcon_순위</title>
+		<title>Logcon</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
@@ -19,7 +19,7 @@
                 <!-- Logo -->
                     <div id="logo">
                         <h1><a href="#">Notice</a></h1>
-                        <p>2019 Logcon</p>
+                        <p>2020 Logcon</p>
                         <% if (user_school != "undefined") { %>
                             <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
                                 <span>Score : <%= score %></span>
@@ -67,7 +67,7 @@
                                 <!-- <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
                                 <% for (var i = 0; i < notice.length; i++) { %>
                                     <div>
-                                        <h3></h3>		<!-- 빈공간 -->
+                                        <h3 style="width: 0;"></h3>		<!-- 빈공간 -->
                                         <h3> <%= notice[i].TITLE %>  </h3>
                                     </div>
                                     <div>

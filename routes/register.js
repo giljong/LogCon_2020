@@ -19,7 +19,7 @@ router.post('/',(req,res) => {
     if(pw!==req.body.check){
         res.send('<script type="text/javascript">alert("비밀번호를 확인해주세요!(*•̀ᴗ•́*)");window.location.href="/";</script>');
     }
-    else if(tmpId===''||tmpPwd===''||tmpEmail===''||tmpSchool === ''||tmpGrade === ''||req.body.check==='')
+    else if(tmpId===''||tmpPwd===''||req.body.email===''||tmpSchool === ''||tmpGrade === undefined||req.body.check==='')
         res.send('<script type="text/javascript">alert("입력되지 않은 값이 있어요!ᵒ̌ ᴥ ᵒ̌");window.location.href="/";</script>');
     else if(pw.length<8||pw.length>20||tmpId.length>20||tmpId.length<5)
         res.send('<script type="text/javascript">alert("아이디나 패스워드의 길이를 맞춰주세요!(´ヘ｀()");window.location.href="/";</script>');

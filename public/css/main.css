@@ -2195,14 +2195,15 @@ input.validate {
 		#intro p.style1 {
 			font-size: 1.5em;
 			letter-spacing: 0.075em;
+			line-height : 130%;
 		}
 
 		#intro p.style2 {
-			font-weight: 700;
+			font-weight: 600;
 			color: #fff;
 			border-radius: 0.35em;
 			box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25);
-			font-size: 2.75em;
+			font-size: 1.75em;
 			letter-spacing: 0.075em;
 			line-height: 1.35em;
 			padding: 1em 0 1em 0;
@@ -2250,10 +2251,14 @@ input.validate {
 	}
 
 	#highlights .highlight>div:nth-child(1){
-		width:70%;
-		height:40%;
-		display:flex;
+		max-width: 410px;
+		min-width:200px;
+		width:40%;
+		height: 40%;
+		margin: 0 auto;
+		display: flex;
 		flex-direction: row;
+		justify-content: center;
 	}
 
 	#highlights .highlight>div:nth-child(2){
@@ -2262,23 +2267,26 @@ input.validate {
 	}
 
 	#highlights .highlight>div:nth-child(1) h3:nth-child(1){
-		width:30%;
+		width: 40%;
+		max-width: 125px;
 		height:100%;
 	}
 
 	#highlights .highlight>div:nth-child(1) h3:nth-child(2){
-		width:70%;
+		width:40%;
+		max-width:287px;
 		height: 100%;
 		font-size:2.5em;
 	}
 
 	#highlights .highlight>div:nth-child(2)> span{
-		width:100%;
+		width: 100%;
 		line-height: 100%;
-		font-size:x-large;
+		font-size: x-large;
 		float: left;
-		display: block;
+		display: flex;
 		margin-bottom: 10px;
+		justify-content: center;
 	}
 	#highlights .highlight>div:nth-child(2)> span>span{
 		float:left;
@@ -2775,6 +2783,10 @@ input.validate {
 					padding-bottom: 2.5em;
 				}
 
+
+		#highlights .highlight>div:nth-child(1) h3 {
+			font-size: 3rem;
+		}
 	}
 /* Custom CSS */
 .modalContent {
@@ -2800,6 +2812,7 @@ input.validate {
 
 .modalContent>form>div{
 	display: flex;
+	flex-direction:column;
 }
 .modalContent>form>div>div>h2{
 	padding:7%;
@@ -2807,16 +2820,35 @@ input.validate {
 }
 
 .modalContent>form>div>.detail {
-	width:100%;
+	width: 100%;
 }
+
+.modalContent>form>div>.detail>div>span {
+	display: flex;
+    align-items: center;
+}
+
+
+.modalContent>form>div>.detail>div {
+	width:100%;
+	display:flex;
+	justify-content: center;
+}
+
 .modalContent>form>div>.changeDetail{
-	right: 0%;
-    background: #444;
-    color: #fff;
-    width: 17px;
-    display: flex;
+    background: #fafafa;
+    width: 100%;
+	display: flex;
+	justify-content: center;
     line-height: 380%;
     align-items: center;
+}
+
+.modalContent>form>div>.changeDetail span{
+	color: #202127;
+	border: 2px solid red;
+	padding: 0 2.25em 0 2.25em;
+	margin: 0 auto 2em auto;
 }
 
 .modalContent>form:nth-child(1) input[type="text"],.modalContent>form:nth-child(1) input[type="password"]{
@@ -2826,11 +2858,9 @@ input.validate {
 }
 
 .modalContent>form input[type="submit"] {
-	float: right;
-    margin-right: 5%;
+	color:#222835;
     border: 2px solid red;
     background: #fff;
-    border-bottom: 0;
 	border-radius: 0;
 }
 
@@ -2848,9 +2878,10 @@ input.validate {
 }
 
 .modalContent>form:nth-child(2)>div span{
-	display: block;
-	width:80%;
-	margin: 0 auto;
+	font-weight: 500;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 2em auto;
 }
 
 .modalContent>form:nth-child(2)>div .detail>div:nth-child(3),
@@ -2900,11 +2931,21 @@ input.validate {
 /* Modal */
 
 @media screen and (max-width: 736px) {
+	
+	
+	.modalContent>form>div>.detail {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.modalContent>form>div>.detail>div>span {
+		margin-left : 10px;
+	}
 
 	.modalContent>form:nth-child(1) input[type="text"],
 	.modalContent>form:nth-child(1) input[type="password"]{
 		width:80%;
-		margin:1em auto;
 		
 	}
 	.modalContent>form:nth-child(2)>div .detail>div:nth-child(3), 
@@ -2923,6 +2964,8 @@ input.validate {
 	.modalContent{
 		width: 90%;
 	}
+
+	
 }
 
 #alarm-cover {
@@ -2952,3 +2995,10 @@ input.validate {
 	font-size : 1.2em;
 	font-weight: 800;
 }
+
+.change {
+	width:80%;
+	margin:0 auto;
+	text-align: center;
+}
+

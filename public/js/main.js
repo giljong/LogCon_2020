@@ -8,7 +8,9 @@
 
 
 (function($) {
-
+	for(var i=2;i<=$(".container .rank-List").length;i+=2){
+		$(".container .rank-List:nth-child("+i+")").css({'background':'rgba(1,1,1,0.1)'})
+	}
 	var	$window = $(window),
 		$body = $('body');
 

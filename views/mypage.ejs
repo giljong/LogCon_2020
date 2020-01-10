@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Logcon_순위</title>
+		<title>Logcon</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
@@ -17,7 +17,7 @@
                 <!-- Logo -->
                     <div id="logo">
                         <h1><a href="#">Mypage</a></h1>
-                        <p>2019 Logcon</p>
+                        <p>2020 Logcon</p>
                         <% if (user_school != "undefined") { %>
                             <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
                                 <span>Score : <%= score %></span>
@@ -57,7 +57,7 @@
                     
             </section>
 				<section id="highlights" class="wrapper style3">
-					<div class="title">MYPAGE</div>
+					<div class="title">Mypage</div>
 					<div class="container">
 
 
@@ -66,8 +66,8 @@
 								<section class="highlight">
 									<!-- <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a> -->
 									<div>
-										<h3>  </h3>		<!--비우기-->
-										<h3> 아이디 : <%= user_id %><br> </h3>
+										<h3 style="width:0"></h3> <!-- 비우기 -->
+										<h3> <%= user_id %><br> </h3>
 									</div>
 									
 
@@ -79,8 +79,7 @@
 												한 줄 메모 : <%= comment %>		<br />
 											</p>
 											<span>메모 변경</span>
-											<label for=""> 한줄메모 </label>
-											<input name="ment" type="text" placeholder="한줄메모 변경" style="width:80%"/>
+											<input name="ment" type="text" class="change" placeholder="한줄메모 변경"/>
 										</form>
 										
 									</div>

@@ -1,28 +1,28 @@
 
 <!DOCTYPE HTML>
 <html>
-   <head>
-      <title>Logcon</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      <link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
-      <link rel="stylesheet" href="css/main.css" />
-      <link rel="stylesheet" href="css/problem.css" />
-      <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-      
-   </head>
-   <body class="is-preload">
-      <!-- Wrapper -->
-         <div id="wrapper">
-            <div id="page-wrapper">
-               <section id="header" class="wrapper">
+	<head>
+		<title>Logcon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/problem.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<div id="page-wrapper">
+					<section id="header" class="wrapper">
 
                         <!-- Logo -->
                             <div id="logo">
                                 <h1><a href="#"> Challenges </a></h1>
-                                <p>2019 Logcon</p>
+                                <p>2020 Logcon</p>
                                 <% if (user_school != "undefined") { %>
-                                    <p>환영합니다 <%= user_id %>님<br>      <!-- Login상태참고해서 출력-->
+                                    <p>환영합니다 <%= user_id %>님<br>		<!-- Login상태참고해서 출력-->
                                         <span>Score : <%= score %></span>
                                     </p>    
                                 <% } %>
@@ -59,7 +59,7 @@
                             </nav>
                             
                     </section>
-            </div>
+				</div>
                 <div id="main">
                     <div class="inner">
                         <%
@@ -95,7 +95,7 @@
                                     <span class="image">
                                         <img src="images/probList/<%= T %>.png" alt="" /> <!-- 서버는 server.png-->
                                     </span>
-                                    <a href="/challenges/<%= info[i].ID %>">      <!-- 경로는 후에 변경 -->
+                                    <a href="/challenges/<%= info[i].ID %>">		<!-- 경로는 후에 변경 -->
                                         <h2><%=info[i].TITLE%></h2>
                                         <h3><%=info[i].SCORE%></h3>
                                     </a>
