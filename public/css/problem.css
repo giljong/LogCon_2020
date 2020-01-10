@@ -154,6 +154,7 @@ input {
 
 		h1 a {
 			color: inherit;
+			line-height: 100%;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -923,6 +924,7 @@ input {
 					font-size:x-large;
 					margin: 15px 0;
 					color:#fff;
+					letter-spacing: inherit;
 				}
 
 				.tiles article > a:hover {
@@ -934,6 +936,10 @@ input {
 					letter-spacing: normal;
 					color: #fff;
 					font-size: xx-large;
+					line-height: 110%;
+					height: 100%;
+					min-height: 2em;
+					overflow: hidden;
 				}
 
 				.tiles article > a .content {
@@ -1000,6 +1006,8 @@ input {
 		.tiles article {
 			width: calc(20% - 1px);
 		}
+
+		
 		@media screen and (max-width: 1280px) {
 
 			.tiles {
@@ -1011,7 +1019,10 @@ input {
 				}
 
 		}
-
+		.tiles article > a div {
+			font-size: x-large;
+			line-height: 120%;
+		}
 		@media screen and (max-width: 980px) {
 
 			.tiles {
@@ -1021,7 +1032,7 @@ input {
 				.tiles article {
 					width: calc(20% - 1px);
 				}
-					.tiles article > a h2,
+					.tiles article > a div,
 					.tiles article > a h3 {
 						font-size:x-large;
 						margin-top: 10px;
@@ -1036,7 +1047,7 @@ input {
 			}
 
 				.tiles article {
-					width: calc(20% - 1px);
+					width: calc(26% - 1px);
 				}
 
 					.tiles article:hover > .image {
@@ -1045,10 +1056,21 @@ input {
 						-ms-transform: scale(1.0);
 						transform: scale(1.0);
 					}
-				.tiles article > a h2,
+				.tiles article > a div {
+					-ms-overflow-style: none; /* IE and Edge */
+    				scrollbar-width: none;
+					overflow-y: scroll;
+				}
+				.tiles article > a div::-webkit-scrollbar {
+					display: none; /* Chrome, Safari, Opera*/
+				}
+				
+				.tiles article > a div,
 				.tiles article > a h3 {
-					font-size:small;
-					margin-top: 10px;
+					font-size: 14pt;
+					margin-top: 30px;
+					height: 100%;
+					min-height: 2em;
 				}
 		}
 
@@ -1059,7 +1081,7 @@ input {
 			}
 
 				.tiles article {
-					width: calc(20% - 1px);
+					width: calc(33.333% - 1px);
 				}
 
 		}
@@ -1070,7 +1092,7 @@ input {
 	#wrapper > * > .inner {
 		width: 100%;
 		max-width: 68em;
-		margin: -5% auto;
+		margin: 1% auto;
 		padding: 0 2.5em;
 	}
 	#wrapper > * > .inner p{
