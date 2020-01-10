@@ -4,7 +4,7 @@ const moment = require('moment');
 const router = express.Router();
 
 router.get('/:num',(req,res) => {
-    var t1 = moment('2020-01-12 09:00');
+    var t1 = moment('2020-01-11 09:00');
     var t2 = moment();
     if(moment.duration(t2.diff(t1)).asMinutes() < 0 && req.session.user !== 'admin'){
         res.send('<script type="text/javascript">alert("문제는 9시부터 확인 가능해요୧( ⁼̴̶̤̀ω⁼̴̶̤́ )૭");window.location.href="/";</script>')
@@ -70,7 +70,7 @@ router.post('/:num',(req,res) => {
 });
 
 router.get('/',(req,res) => {
-    var t1 = moment('2020-01-12 09:00');
+    var t1 = moment('2020-01-11 09:00');
     var t2 = moment();
     if(moment.duration(t2.diff(t1)).asMinutes() < 0 && req.session.user !== 'admin'){
         res.send('<script type="text/javascript">alert("문제는 9시부터 확인 가능해요୧( ⁼̴̶̤̀ω⁼̴̶̤́ )૭");window.location.href="/";</script>')

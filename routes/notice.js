@@ -3,7 +3,7 @@ const db = require('../db/connection');
 const router = express.Router();
 
 router.get('/',(req,res) => {
-    db.query('select * from Notice', (err,result) => {
+    db.query('select * from Notice order by id desc', (err,result) => {
         if (err) throw err;
         if((req.session.user === undefined)){
             res.render('notice.ejs',{

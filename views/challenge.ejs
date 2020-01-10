@@ -15,7 +15,7 @@
             <!-- Logo -->
                 <div id="logo">
                     <h1><a href="#"> <%= info[0].TITLE %> </a></h1>
-                    <p>2020 Logcon<br/><%= info[0].SCORE %></p>
+                    <p style="font-weight: 700; font-size:2.5em"><%= info[0].SCORE %><span style="font-size:0.5em">Pts</span></p>
                 </div>
 
             <!-- Nav -->
@@ -54,21 +54,21 @@
                 <div id="main">
                     <div class="inner">
                         
-                        <p>			<!-- 문제 내용이 들어가는 곳 -->
+                        <pre>			<!-- 문제 내용이 들어가는 곳 -->
                             <%= info[0].CONTENTS %>
-                        </p>
+                        </pre>
                         <% if (info[0].FILE_PATH != "false") { %>
-                            <a href="<%= info[0].FILE_PATH %>" target="_blank">파일 다운로드</a>	<!-- 파일이 함께하는 문제 -->
-                            <br>
+                            <a href="<%= info[0].FILE_PATH %>" target="_blank" style="color: blue;
+                                text-decoration: underline;">파일 다운로드</a>	<!-- 파일이 함께하는 문제 -->
+                            <br />
                         <% } %>
-                        
+                        <% console.log(info[0].CONTENTS)%>
                         <form action="/challenges/<%= pid %>" method="POST" class="submitFlag">	<!-- pid  -->
                             <div>
                                 <div class="inputField">
                                         
                                     <input name="answer" id="flag" type="text" class="validate" style="padding:0;
                                     border-radius: 0;" placeholder="TeamLog{...}">
-                                    <label for="flag" class="flag">flag</label>
                                 </div>
                                 <button type="submit" name="action">제출</button>
                             </div>

@@ -34,7 +34,7 @@ router.get('/delUser',(req,res) => {
 
 router.post('/insertP',(req,res) => {
     const title = req.body.title;
-    const content = req.body.content;
+    let content = req.body.content;
     const answer = req.body.answer;
     const score = req.body.score;
     const file = req.body.file;
@@ -112,7 +112,69 @@ router.post('/deleteP',(req,res) => {
         }
     })
 })
-
+.get('/deleteN',(req,res) => {
+    if(!(req.session.user === 'admin'))
+        res.send('<script type="text/javascript">alert("관리자가 아니시군요?٩(๑`ȏ´๑)۶");window.location.href="/";</script>');
+    else
+        res.sendFile(path.join(__dirname,'../views', 'deleteN.html'));
+})
+.post('/deleteN',(req,res) =>{
+    const title = req.body.user;
+    db.query('delete from Notice where TITLE = ?',title,(err,result) => {
+        if (err) console.log(err);
+        if(!result.affectedRows){
+            res.send("<script type='text/javascript'>alert('존재하지 않는 공지입니다.');window.location.href='/tligd/deleteP';</script>");
+        }
+        else{
+            res.send('<script type="text/javascript">alert("삭제완료!♪(๑ᴖ◡ᴖ๑)♪");window.location.href="/tligd/sibal";</script>');
+            console.log(req.body.user + ' 공지 삭제');
+        }
+    })
+})
+.post('/updateP',(req,res) => {
+    const  {
+        title,score,content
+    } = req.body;
+    if(score === '' && content!==''){
+        db.query('update Problems set contents=? where title = ?',[content,title],(err,result) =>{
+            if(!result.affectedRows){
+                res.send("<script type='text/javascript'>alert('존재하지 않는 문제입니다.');window.location.href='/tligd/updateP';</script>");
+            }
+            else{
+                res.send('<script type="text/javascript">alert("삭제완료!♪(๑ᴖ◡ᴖ๑)♪");window.location.href="/tligd/sibal";</script>');
+                console.log(title + ' 문제 수정');
+            }
+        });
+    }
+    else if(score !== '' && content!==''){
+        db.query('select score,id from Problems where title = ?',title,(error,data)=>{
+            if(error)
+                console.log(err)
+            if(!data.length){
+                res.send("<script type='text/javascript'>alert('존재하지 않는 문제입니다.');window.location.href='/tligd/deleteP';</script>");
+            }
+            else{
+                db.query('update users set score=score-? where id in(select user from Solved where pid=?)',[data[0].score-score,data[0].id]);
+                db.query('update problems set score = ?, contents = ? where title = ?',[score,content,title])
+                req.session.score -= data[0].score-score;
+                req.session.save(() => {
+                    res.send('<script type="text/javascript">alert("수정완료!♪(๑ᴖ◡ᴖ๑)♪");window.location.href="/tligd/sibal";</script>');
+                    console.log(title + ' 문제 수정');
+                })
+                }
+            }
+        )
+    }
+    else{
+        res.send('<script type="text/javascript">alert("값 제대로 넣어");window.location.href="/tligd/updateP";</script>');
+    }
+})
+.get('/updateP',(req,res) => {
+    if(!(req.session.user === 'admin'))
+        res.send('<script type="text/javascript">alert("관리자가 아니시군요?٩(๑`ȏ´๑)۶");window.location.href="/";</script>');
+    else
+        res.sendFile(path.join(__dirname,'../views', 'updateP.html'));
+})
 
 
 module.exports = router;
