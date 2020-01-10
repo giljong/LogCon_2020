@@ -65,7 +65,7 @@ router.post('/delUser',(req,res) => {
             res.send("<script type='text/javascript'>alert('존재하지 않는 유저입니다.');window.location.href='/tligd/delUser';</script>");
         }
         else{
-            db.query('delete from Solved where ID = ?',user);
+            db.query('delete from Solved where user = ?',user);
             res.send('<script type="text/javascript">alert("삭제완료!♪(๑ᴖ◡ᴖ๑)♪");window.location.href="/tligd";</script>');
             console.log(user + '의 계정삭제');
         }
