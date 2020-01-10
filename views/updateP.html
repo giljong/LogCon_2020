@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>문제추가</title>
+</head>
+<body>
+    <form action="/tligd/updateP" method="post">
+        <div>
+            <label>문제이름:</label>
+            <input type="text" name="title" required>
+        </div>
+        <br>
+        <div>
+            <label>문제내용:</label>
+            <textarea name="content" required></textarea>
+        </div>
+        <br>
+        <div>
+            <label>점수:</label>
+            <input type="text" name="score">
+        </div>
+        <br>       
+        <div>
+            <input type="submit" value="문제 수정"/>
+        </div>
+    </form>
+</body>
+</html>
