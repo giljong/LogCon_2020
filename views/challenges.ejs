@@ -6,8 +6,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="shortcut icon" href="images/logo/logcon-logo-24.png">
-		<link rel="stylesheet" href="css/main.css" />
-		<link rel="stylesheet" href="css/problem.css" />
+        <link rel="stylesheet" href="css/problem.css" />
+        <link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 		
 	</head>
@@ -74,11 +74,13 @@
                             <% for (var i = 0; i < info.length; i++) {
                                 if (info[i].PTYPE == "network") { 
                                         var T = "network"
-                                } if (info[i].PTYPE == "server") { 
+                                }else if (info[i].PTYPE == "server") { 
                                         var T = "server"
-                                } if (info[i].PTYPE == "web") {
+                                }else if (info[i].PTYPE == "web") {
                                         var T = "web" 
-                                } 
+                                }else {
+                                    var T = "etc"
+                                }
                                 
                                 var isSolved = solvedArray.find(element => element == info[i].ID);
                                 if(isSolved != undefined){    
@@ -91,12 +93,12 @@
                             %>
 
 
-                               
+                            
                                     <span class="image">
-                                        <img src="images/probList/<%= T %>.png" alt="" /> <!-- 서버는 server.png-->
+                                        <img src="images/probList/<%= T %>.svg" alt="" /> <!-- 서버는 server.png-->
                                     </span>
                                     <a href="/challenges/<%= info[i].ID %>">		<!-- 경로는 후에 변경 -->
-                                        <h2><%=info[i].TITLE%></h2>
+                                        <h2><%=info[i].TITLE %></h2>
                                         <h3><%=info[i].SCORE%></h3>
                                     </a>
                                 </article>

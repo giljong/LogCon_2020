@@ -16,15 +16,15 @@
                 
                 
                 <div>
-                    <input type="submit" value="로그인"/>
+                    <input type="submit" style="width: fit-content;font-size:100%" value="로그인"/>
                 </div>
             </div>
             <div>
-                <p style="margin-top: 4em;
+                <p style="margin-top: 2em;
                 text-align: center; "> 계정이 없으신가요? </p>
             </div>
             <div class="changeDetail">
-                <span  onclick="changeDetail(true)" style="cursor:pointer"> 회원가입 </span>
+                <span  onclick="changeDetail(true)" style="cursor:pointer;letter-spacing: 0.25em;"> 회원가입 </span>
             </div>
             
 
@@ -39,7 +39,7 @@
                 
                 <div>
                     <span>username</span>
-                    <input type="text" placeholder="username" name="id"/>
+                    <input type="text"maxlength="20" minlength="5" placeholder="username" name="id"/>
                 </div>
                 
 
@@ -47,13 +47,13 @@
                     <div>
                         <span>password</span>
                     
-                        <input type="password" placeholder="password Here" name ="pw"/>
+                        <input type="password" maxlength="20" minlength="8" placeholder="password Here" name ="pw"/>
                     </div>
                     
                     <div>
                         <span>confirm password</span>
                         
-                        <input type="password" placeholder="confirm password!" name="check"/>
+                        <input type="password" maxlength="20" minlength="8" placeholder="confirm password!" name="check"/>
                     </div>
                 </div>
                 
@@ -96,7 +96,7 @@
 
             </div>
             <div class="changeDetail" onclick="changeDetail(false)">
-                <span>로그인하러가기</span>
+                <span style="font-weight: 500;">로그인하러가기</span>
             </div>
         </div>
     </form>
