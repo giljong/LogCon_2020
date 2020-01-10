@@ -155,7 +155,7 @@ router.post('/deleteP',(req,res) => {
             }
             else{
                 db.query('update Users set score=score-? where id in(select user from Solved where pid=?)',[data[0].score-score,data[0].id]);
-                db.query('update problems set score = ?, contents = ? where title = ?',[score,content,title])
+                db.query('update Problems set score = ?, contents = ? where title = ?',[score,content,title])
                 req.session.score -= data[0].score-score;
                 req.session.save(() => {
                     res.send('<script type="text/javascript">alert("수정완료!♪(๑ᴖ◡ᴖ๑)♪");window.location.href="/tligd/sibal";</script>');
